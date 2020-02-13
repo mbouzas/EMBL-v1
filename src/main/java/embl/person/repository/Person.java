@@ -1,8 +1,9 @@
 package embl.person.repository;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 /**
  * The Person Entity, represents a Person.
@@ -11,7 +12,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Person")
+@Data
+@NoArgsConstructor
 public class Person {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="id")
+    long id;
 
     @Column(name = "first_name")
     private String firstName;
