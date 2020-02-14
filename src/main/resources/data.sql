@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Hobby;
 DROP TABLE IF EXISTS Person;
 
 CREATE TABLE Person (
@@ -13,3 +14,17 @@ INSERT INTO Person (first_name, last_name, age, favourite_colour) VALUES
 ('John', 'Wick', '29','red'),
 ('Sarah', 'Raven', '54','blue'),
 ('Manu', 'Bouzas', '30','yellow');
+
+CREATE TABLE Hobby (
+    id_hobby INT AUTO_INCREMENT PRIMARY KEY ,
+    person_id INT,
+    hobbies VARCHAR(250),
+    foreign key (person_id) references Person(id) ON DELETE CASCADE
+    );
+
+INSERT INTO Hobby (person_id, hobbies) VALUES
+(1, 'shopping'),
+(1, 'football'),
+(2, 'chess');
+
+

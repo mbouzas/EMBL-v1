@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Slf4j
 @RestController
@@ -21,13 +19,14 @@ public class PersonsRequestController {
     PersonRepository personRepository;
 
     /**
-     * @param personId to fetch the data Person.
      * @return List of Instructions associated to the given id
      */
     @GetMapping("/person")
-    public List<Person> findAllPersons() {
+    public Map< String ,List<Person>> findAllPersons() {
         List<Person> people = personRepository.findAll();
-        return people;
+        Map< String ,List<Person>> stringListMap = new HashMap<>();
+        stringListMap.put("Person", people);
+        return stringListMap ;
 
     }
 
