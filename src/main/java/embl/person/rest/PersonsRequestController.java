@@ -1,9 +1,7 @@
 package embl.person.rest;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import embl.person.person.body.PersonPostRequest;
+import embl.person.person.body.PersonRequest;
 import embl.person.repository.Person;
 import embl.person.repository.PersonRepository;
 import embl.person.service.PersonService;
@@ -57,11 +55,24 @@ public class PersonsRequestController {
      * @return List of Persons
      */
     @PostMapping("/persons")
-    public void persons(@Valid @RequestBody Map<String,List<PersonPostRequest>> person) {
+    public void persons(@Valid @RequestBody Map<String,List<PersonRequest>> person) {
 
         personService.createPerson(person);
 
     }
+
+    /**
+     * @param personId Id of the Person to be updated.
+     * @param updatePerson Data required to update an existing configuration.
+     * @return The updated Person.
+     */
+    @PutMapping("/person/{personId}")
+    public Person updateConfig(
+            @PathVariable long personId,
+            @RequestBody Map<String,PersonRequest> updatePerson) {
+        return personService.updatePerson(personId, updatePerson);
+    }
+
 
     /**
      * @param personId   person will be removed

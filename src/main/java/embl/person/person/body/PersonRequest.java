@@ -8,7 +8,7 @@ import javax.persistence.Column;
  * DTO expected as body on POST requests.
  */
 @Data
-public class PersonPostRequest {
+public class PersonRequest {
 
     String first_name;
 
