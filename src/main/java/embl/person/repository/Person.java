@@ -3,8 +3,10 @@ package embl.person.repository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,8 @@ import java.util.List;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @SequenceGenerator(name = "my_entity_gen", sequenceName = "my_entity_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_entity_gen")
     @Column(name="id")
     @JsonIgnore
     long id;
@@ -38,7 +41,7 @@ public class Person {
     private String favouriteColour;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", insertable = true, updatable = true)
     @JsonIgnore
     private List<Hobby>  hobbies = new ArrayList<>();
 

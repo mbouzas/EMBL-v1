@@ -13,6 +13,7 @@ CREATE TABLE Person (
 INSERT INTO Person (first_name, last_name, age, favourite_colour) VALUES
 ('John', 'Wick', '29','red'),
 ('Sarah', 'Raven', '54','blue'),
+('Isa', 'Lema', '25','red'),
 ('Manu', 'Bouzas', '30','yellow');
 
 CREATE TABLE Hobby (
@@ -25,6 +26,7 @@ CREATE TABLE Hobby (
 INSERT INTO Hobby (person_id, hobbies) VALUES
 (1, 'shopping'),
 (1, 'football'),
-(2, 'chess');
+(2, 'chess'),
+(3, 'tv shows');
 
 
