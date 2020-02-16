@@ -5,14 +5,17 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+/**
+ * Performs the web based security for Spring Security
+ *
+ * @author Manuel Bouzas
+ */
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
 
     @Override
     @Bean
@@ -23,7 +26,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public UserDetailsService userDetailsService () {
-
 
         User.UserBuilder user = org.springframework.security.core.userdetails.User.withUsername("user");
         user.password(new BCryptPasswordEncoder().encode("secret"));
@@ -36,7 +38,5 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 admin.build());
 
     }
-
-
 
 }

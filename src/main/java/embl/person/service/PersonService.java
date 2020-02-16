@@ -10,11 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Encapsulate business logic related to person.
+ *
+ * @author Manuel Bouzas
  */
 @Transactional
 @Service
@@ -25,6 +28,7 @@ public class PersonService {
 
     @Autowired
     HobbyRepository hobbyRepository;
+
     /**
      * @param personPost Data required to create a new Person.
      * @return Newly created Person.
@@ -38,8 +42,20 @@ public class PersonService {
     }
 
     /**
-     * @param personId Id of the configuration.
-     * @return Configuration with the given id.
+     *
+     * @return All the Persons.
+     */
+    public  Map< String ,List<Person>> findAllPersons() {
+        List<Person> people = personRepository.findAll();
+        Map< String ,List<Person>> stringListMap = new HashMap<>();
+        stringListMap.put("Person", people);
+        return stringListMap;
+    }
+
+
+    /**
+     * @param personId Id of Person to be find.
+     * @return Person with the given id.
      */
     public Person findPersonById(long personId) {
         Person person = personRepository.findById(personId).orElse(null);
@@ -48,10 +64,11 @@ public class PersonService {
         }
         return person;
     }
+
     /**
      * @param personId Id of the Person to be updated.
      * @param personRequest Data to be set in the Person with the given id.
-     * @return Updated configuration.
+     * @return Updated Person.
      */
     public Person updatePerson(long personId, Map<String,PersonRequest> personRequest) {
         Person person = findPersonById(personId);
@@ -61,28 +78,12 @@ public class PersonService {
         return personRepository.save(person);
     }
 
-
-
     private Person saveNewPersons(PersonRequest p, Person person) {
 
         person.setFirstName(p.getFirst_name());
         person.setLastName(p.getLast_name());
         person.setAge(p.getAge());
         person.setFavouriteColour(p.getFavourite_colour());
-        for (String hobby : p.getHobby()) {
-            Hobby newHobby = new Hobby();
-            newHobby.setHobbies(hobby);
-            person.getHobbies().add(newHobby);
-        }
-        return person;
-    }
-
-    private Person updatePerson(PersonRequest p, Person person){
-        person.setFirstName(p.getFirst_name());
-        person.setLastName(p.getLast_name());
-        person.setAge(p.getAge());
-        person.setFavouriteColour(p.getFavourite_colour());
-        //person.getHobbies().removeAll(person.getHobbies());
         for (String hobby : p.getHobby()) {
             Hobby newHobby = new Hobby();
             newHobby.setHobbies(hobby);

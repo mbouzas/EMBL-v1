@@ -5,7 +5,10 @@ import lombok.Data;
 import javax.persistence.Column;
 
 /**
- * DTO expected as body on POST requests.
+ *
+ * DTO expected as body on POST,PUT requests.
+ *
+ * @author Manuel Bouzas
  */
 @Data
 public class PersonRequest {
