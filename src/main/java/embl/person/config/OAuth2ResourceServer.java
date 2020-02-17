@@ -17,6 +17,7 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter
 {
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
                 .antMatchers("/api/**").authenticated()
