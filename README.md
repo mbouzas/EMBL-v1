@@ -41,8 +41,12 @@ To reduce the boiler plate code we make use of [Lombok](https://projectlombok.or
 ### Compile and test; build all jars, distribution tarball, docs....
 `mvn package`
 
-### FINALLY READY!!!
+### Run the App
 You can run the app on the command line using `mvn spring-boot:run` or by building the jar file and running it with `mvn package` and `java -jar target/*.jar`.
 Start the app opening the h2 console
 `http://localhost:9090/h2` Console where you can manage all related with the DB. 
+
+### FINALLY READY!!!
+Open a Postman Client and play with the REST API (attached Postman collection with headers and credentials to get token.. please remember refresh the token )
+
 
