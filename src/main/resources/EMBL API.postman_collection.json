@@ -1,0 +1,164 @@
+{
+	"variables": [],
+	"info": {
+		"name": "EMBL API",
+		"_postman_id": "f588bef9-7652-505e-6712-ac49a7128abf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Oauth2 Token",
+			"request": {
+				"url": "http://localhost:9090/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Y2xpZW50OnBhc3N3b3Jk",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "secret",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create Persons",
+			"request": {
+				"url": "http://localhost:9090/api/persons",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer ced60f06-6480-440f-abc1-e6a82c25f09a",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Person\": [{\n    \"first_name\": \"isa\",\n    \"last_name\": \"lema\",\n    \"age\": \"29\",\n    \"favourite_colour\": \"red\",\n    \"hobby\": [\"shopping\", \"football\"]\n  },\n{\n    \"first_name\": \"Manu\",\n    \"last_name\": \"Bouzas\",\n    \"age\": \"30\",\n    \"favourite_colour\": \"yellow\",\n    \"hobby\": []\n  }\n]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET Retrieve All persons",
+			"request": {
+				"url": "http://localhost:9090/api/person",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer ced60f06-6480-440f-abc1-e6a82c25f09a",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET Retrieve Person By ID",
+			"request": {
+				"url": "http://localhost:9090/api/person/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer b4ba32a1-682f-4b14-8f2a-20e40b200414",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT update Person By ID",
+			"request": {
+				"url": "http://localhost:9090/api/person/2",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer ced60f06-6480-440f-abc1-e6a82c25f09a",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Person\": {\n    \"first_name\": \"isa\",\n    \"last_name\": \"lema2\",\n    \"age\": \"29\",\n    \"favourite_colour\": \"red\",\n    \"hobby\": [\"shopping\", \"basket\"]\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE  remove Person By ID",
+			"request": {
+				"url": "http://localhost:9090/api/person/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer ced60f06-6480-440f-abc1-e6a82c25f09a",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Person\": {\n    \"first_name\": \"isa\",\n    \"last_name\": \"lema2\",\n    \"age\": \"29\",\n    \"favourite_colour\": \"red\",\n    \"hobby\": [\"shopping\", \"basket\"]\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
