@@ -1,21 +1,18 @@
 # EMBL : Create REST API which stores, update, retrieves and deletes Person 
 [![build status](https://gitlab.cern.ch/c2mon/c2mon/badges/master/build.svg)](https://gitlab.cern.ch/c2mon/c2mon/commits/master)
 
-The CERN Control and Monitoring Platform (C2MON) is a heterogeneous data acquisition and monitoring framework. It contains many useful features
-such as historical metric persistence and browsing, command execution and alerting. It can be suitable for building many different types
-of monitoring and control system or a full SCADA application.
 
-## Documentation
-See the current [reference docs][].
+## Technology stack
 
-## Issue tracking
-All C2MON issues are tracked and maintained within the [CERN JIRA][] system. Alternatively, you can send an email to c2mon-support@cern.ch.
+* Backend:
+    * Spring Boot (Maven, REST)
+    * Spring Security OAuth 
+    * h2 (in memory database)
 
-## Release notes
-Please have a look into the [CHANGELOG.md][] file.
+* Moreover:
+    * Postman Collection, testing OAuth 2.0 Authorization  and GET, POST, PUT, DELETE methods
 
-## Milestone planning
-[Find here][] the complete list of all existing version milestones.
+
 
 ## Downloading latest stable server tarball 
 
@@ -47,19 +44,3 @@ To reduce the boiler plate code we make use of [Lombok](https://projectlombok.or
 
 ## Contributing
 [Pull requests][] are welcome; see the [contributor guidelines][] for details.
-
-## License
-C2MON is released under the [GNU LGPLv3 License][].
-
-[Javadoc]: https://c2mon.web.cern.ch/c2mon/javadoc/
-[reference docs]: http://c2mon.web.cern.ch/c2mon/docs/
-[CERN JIRA]: https://its.cern.ch/jira/projects/CM
-[GitHub issues]: https://github.com/c2mon/c2mon/issues
-[CHANGELOG.md]: /CHANGELOG.md
-[Find here]: https://gitlab.cern.ch/c2mon/c2mon/milestones?state=all
-[Maven]: http://maven.apache.org
-[Git]: http://help.github.com/set-up-git-redirect
-[JDK8 build]: http://www.oracle.com/technetwork/java/javase/downloads
-[Pull requests]: http://help.github.com/send-pull-requests
-[contributor guidelines]: /CONTRIBUTING.md
-[GNU LGPLv3 License]: /LICENSE
