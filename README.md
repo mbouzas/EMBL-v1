@@ -1,4 +1,4 @@
-# EMBL : Create REST API which stores, update, retrieves and deletes Person entities
+# EMBL : Create REST API which stores, update, retrieves and deletes Person 
 [![build status](https://gitlab.cern.ch/c2mon/c2mon/badges/master/build.svg)](https://gitlab.cern.ch/c2mon/c2mon/commits/master)
 
 The CERN Control and Monitoring Platform (C2MON) is a heterogeneous data acquisition and monitoring framework. It contains many useful features
