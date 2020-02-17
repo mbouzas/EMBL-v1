@@ -47,6 +47,10 @@ Start the app opening the h2 console
 `http://localhost:9090/h2` Console where you can manage all related with the DB. 
 
 ### FINALLY READY!!!
-Open a Postman Client and play with the REST API (attached Postman collection with headers and credentials to get token.. please remember refresh the token )
+Open a `Postman` Client and play with the REST API (attached Postman collection with headers and credentials to get token.. `please remember refresh the token` for GET, POST , PUT , DELETE methods.. Example Headers  Key:Autorization Value:bearer ced60f06-6480-440f-abc1=e6a82c25f09a
 
+## Next Steps
+* Improve HTTP Status Codes and messages. Example return 201 when a person is created.. 404 not found.
+* Currently developing a Vue js app, consuming  EMBL rest API
+   
 
