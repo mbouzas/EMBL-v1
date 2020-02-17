@@ -44,7 +44,7 @@ To reduce the boiler plate code we make use of [Lombok](https://projectlombok.or
 ### Run the App
 You can run the app on the command line using `mvn spring-boot:run` or by building the jar file and running it with `mvn package` and `java -jar target/*.jar`.
 Start the app opening the h2 console
-`http://localhost:9090/h2` Console where you can manage all related with the DB. 
+`http://localhost:9090/h2` Console where you can manage all related with the DB. Check jdbc url, username and password in the `application.properties`.
 
 ### FINALLY READY!!!
 Open a `Postman` Client and play with the REST API (attached Postman collection with headers and credentials to get token.. `please remember refresh the token` for GET, POST , PUT , DELETE methods.. Example Headers  Key:Autorization Value:bearer ced60f06-6480-440f-abc1=e6a82c25f09a
