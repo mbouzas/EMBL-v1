@@ -61,7 +61,7 @@ Create token
   -d 'password=secret&username=user&grant_type=password'`
 
 {"access_token":"92c3b5f5-0784-4168-a6e2-1b4dc130c88c","token_type":"bearer","refresh_token":"6762217e-8315-4458-a63f-cf2f9e5fd823","expires_in":42842,"scope":"read write"}
------------------------------
+*******************
 Insert 2 persons
 
 `curl -X POST \
@@ -89,7 +89,7 @@ Insert 2 persons
 }'`
 
 200 ok
-------------------------
+*************************
 Get persons
 
 
@@ -100,7 +100,7 @@ Get persons
   -H 'postman-token: f4c51040-5201-381b-bf30-86bf338a48f2'`
   
   {"Person":[{"firstName":"isa","lastName":"lema","age":"29","favouriteColour":"red","hobby":["shopping","football"]},{"firstName":"Manu","lastName":"Bouzas","age":"30","favouriteColour":"yellow","hobby":[]},{"firstName":"isa","lastName":"lema","age":"29","favouriteColour":"red","hobby":["shopping","football"]},{"firstName":"Manu","lastName":"Bouzas","age":"30","favouriteColour":"yellow","hobby":[]}]}
----------------------------
+*********************
 Delete Person by Id=1
   
   `curl -X DELETE \
