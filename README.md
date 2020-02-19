@@ -16,7 +16,7 @@
 ## API structure
 
 * Oauth.. Create Token:
-    * POST /oauth/token   ----> Needed User credendials (creadted 2 users -> username: user, password: secrect / username:admin, password:secret )
+    * POST /oauth/token   ----> Needed User credendials (created 2 users -> username: user, password: secrect / username:admin, password:secret )
 
 * Methods:
     * POST     /api/persons           ---->  Create a list of Persons (JSON Person defined in the body)
@@ -33,7 +33,7 @@ To run the application you need at least Java8 and Maven installed.
 
 #### IDEs
 
-To reduce the boiler plate code we make use of [Lombok](https://projectlombok.org/), which requires to be [setup in your IDE](https://projectlombok.org/setup/overview) in order to compile the project.
+To reduce the boiler plate code I make use of [Lombok](https://projectlombok.org/), which requires to be [setup in your IDE](https://projectlombok.org/setup/overview) in order to compile the project.
 
 ### Check out sources
 `git clone https://gitlab.cern.ch/mbouzas/embl.git`
@@ -62,7 +62,7 @@ Create token
 
 {"access_token":"92c3b5f5-0784-4168-a6e2-1b4dc130c88c","token_type":"bearer","refresh_token":"6762217e-8315-4458-a63f-cf2f9e5fd823","expires_in":42842,"scope":"read write"}
 *******************
-Insert 2 persons
+Insert 3 persons
 
 `curl -X POST \
   http://localhost:9090/api/persons \
