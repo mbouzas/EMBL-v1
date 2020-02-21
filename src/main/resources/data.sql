@@ -10,11 +10,11 @@ CREATE TABLE Person (
 
 );
 
-/*INSERT INTO Person (first_name, last_name, age, favourite_colour) VALUES
+INSERT INTO Person (first_name, last_name, age, favourite_colour) VALUES
 ('John', 'Wick', '29','red'),
 ('Sarah', 'Raven', '54','blue'),
 ('Isa', 'Lema', '25','red'),
-('Manu', 'Bouzas', '30','yellow');*/
+('Manu', 'Bouzas', '30','yellow');
 
 CREATE TABLE Hobby (
     id_hobby INT AUTO_INCREMENT PRIMARY KEY ,
@@ -23,10 +23,10 @@ CREATE TABLE Hobby (
     foreign key (person_id) references Person(id) ON DELETE CASCADE
     );
 
---INSERT INTO Hobby (person_id, hobbies) VALUES
---(1, 'shopping'),
---(1, 'football'),
---(2, 'chess'),
---(3, 'tv shows');
+INSERT INTO Hobby (person_id, hobbies) VALUES
+(1, 'shopping'),
+(1, 'football'),
+(2, 'chess'),
+(3, 'tv shows');
 
 
