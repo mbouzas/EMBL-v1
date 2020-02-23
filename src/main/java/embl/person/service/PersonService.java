@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Encapsulate business logic related to person.
@@ -84,11 +86,7 @@ public class PersonService {
         person.setLastName(p.getLast_name());
         person.setAge(p.getAge());
         person.setFavouriteColour(p.getFavourite_colour());
-        for (String hobby : p.getHobby()) {
-            Hobby newHobby = new Hobby();
-            newHobby.setHobbies(hobby);
-            person.getHobbies().add(newHobby);
-        }
+        person.setHobbies(Arrays.stream(p.getHobby()).collect(Collectors.toSet()));
         return person;
     }
 }

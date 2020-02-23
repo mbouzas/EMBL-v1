@@ -20,7 +20,7 @@ import javax.persistence.*;
 public class Hobby {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_hobby")
     @JsonIgnore
     long idHobby;

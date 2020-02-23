@@ -8,7 +8,9 @@ import org.hibernate.validator.constraints.UniqueElements;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * The Person Entity, represents a Person.
@@ -22,8 +24,7 @@ import java.util.List;
 public class Person {
 
     @Id
-    @SequenceGenerator(name = "my_entity_gen", sequenceName = "my_entity_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_entity_gen")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     @JsonIgnore
     long id;
@@ -40,21 +41,26 @@ public class Person {
     @Column(name = "favourite_colour")
     private String favouriteColour;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "person_id", insertable = true, updatable = true)
-    @JsonIgnore
-    private List<Hobby>  hobbies = new ArrayList<>();
+  //  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+  //  @JoinColumn(name = "person_id", insertable = true, updatable = true)
+  //  @JsonIgnore
+  //  private List<Hobby>  hobbies = new ArrayList<>();
 
-    public String [] gethobby() {
-        String[] array = new String[hobbies.size()];
-        int index = 0;
-        for (Hobby value : hobbies) {
-            array[index] = value.getHobbies();
-            index++;
-        }
-        return array;
+  //  public String [] gethobby() {
+  //      String[] array = new String[hobbies.size()];
+  //      int index = 0;
+  //      for (Hobby value : hobbies) {
+  //          array[index] = value.getHobbies();
+  //          index++;
+  //      }
+  //      return array;
 
-    }
+  //  }
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "Hobby", joinColumns = @JoinColumn(name = "person_id"))
+    @Column(name = "hobbies")
+    private Set<String> hobbies = new HashSet<>();
 
 
 }
